@@ -27,15 +27,9 @@ class MainVC: UIViewController {
     //MARK:- LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        venuesTable.rowHeight = UITableView.automaticDimension
-        venuesTable.estimatedRowHeight = 600
-        LocationUpdatesManager.shared.startUpdates()
-        LocationUpdatesManager.shared.didExceedThreshold = { [weak self] (location) in
-            self?.currentLocation = location
-            self?.loadingData = true
-            self?.viewModel?.fetchVenues(for: (location.latitude,location.longitude), isFirstLoad: true)
-        }
+        setup()
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         venuesTable.startLoading()
@@ -47,6 +41,29 @@ class MainVC: UIViewController {
         viewModel.setDependencies(view: currentVC, api: FourSquareAPI())
         currentVC.viewModel = viewModel
         return currentVC
+    }
+    
+    private func setup() {
+        self.title = "Near By"
+        venuesTable.rowHeight = UITableView.automaticDimension
+        venuesTable.estimatedRowHeight = 600
+        LocationUpdatesManager.shared.didExceedThreshold = { [weak self] (location) in
+            self?.currentLocation = location
+            self?.loadingData = true
+            self?.viewModel?.fetchVenues(for: (location.latitude,location.longitude), isFirstLoad: true)
+        }
+        startRealTime()
+    }
+    
+    @objc func stopRealTime() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Start RealTime", style: .plain, target: self, action: #selector(startRealTime))
+        LocationUpdatesManager.shared.stopUpdates()
+    }
+    
+    @objc func startRealTime() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Stop RealTime", style: .plain, target: self, action: #selector(stopRealTime))
+        LocationUpdatesManager.shared.startUpdates()
+        
     }
     
 }
