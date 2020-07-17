@@ -41,7 +41,11 @@ extension MainVCViewModel: MainVCViewModelProtocol {
     
     func fetchVenues(for location: (Double, Double), isFirstLoad: Bool) {
         if !isFirstLoad && venues.count >= totalItems { return }
-        if isFirstLoad { venues.removeAll() }
+        if isFirstLoad {
+            venues.removeAll()
+            page = 0
+            totalItems = 0
+        }
         api?.getLocations(lat: location.0, lon: location.1, offset: page*limit, limit: limit) { [weak self] (result) in
             switch result {
             case .success(let res):
