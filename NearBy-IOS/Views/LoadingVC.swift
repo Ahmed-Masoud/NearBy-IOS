@@ -1,5 +1,5 @@
 //
-//  LoadingVC.swift
+//  MainVC.swift
 //  NearBy-IOS
 //
 //  Created by Ahmed masoud on 7/17/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoadingVC: UIViewController {
+class MainVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
