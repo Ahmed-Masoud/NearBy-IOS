@@ -30,8 +30,6 @@ class VenueCell: UITableViewCell {
         if let image = venue.image {
             if let url = image.url {
                 self.venueImageView.kf.setImage(with: URL(string: url), placeholder: UIImage(named: "placeholderImage")!, options: [.transition(.fade(1)) ])
-            } else {
-                self.venueImageView.kf.setImage(with: URL(string: "https://www.labotec.co.za/wp-content/uploads/placeholder.png"), options : [ .transition(.fade(1)) ])
             }
         }
     }
