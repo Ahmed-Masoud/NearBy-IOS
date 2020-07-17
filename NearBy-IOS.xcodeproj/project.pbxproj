@@ -14,6 +14,7 @@
 		EA0B4E5224C177D900C36EFF /* UIViewController+Create.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0B4E5124C177D900C36EFF /* UIViewController+Create.swift */; };
 		EA0B4E5424C17B9500C36EFF /* FourSquareVenue.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0B4E5324C17B9500C36EFF /* FourSquareVenue.swift */; };
 		EA0B4E5724C17BFF00C36EFF /* FourSquareVenueVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0B4E5624C17BFF00C36EFF /* FourSquareVenueVM.swift */; };
+		EA0B4E5A24C1810100C36EFF /* VenueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0B4E5924C1810100C36EFF /* VenueCell.swift */; };
 		EAC4418424C14D0B00027B04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC4418324C14D0B00027B04 /* AppDelegate.swift */; };
 		EAC4418824C14D0B00027B04 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC4418724C14D0B00027B04 /* MainVC.swift */; };
 		EAC4418B24C14D0B00027B04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAC4418924C14D0B00027B04 /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 		EA0B4E5124C177D900C36EFF /* UIViewController+Create.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Create.swift"; sourceTree = "<group>"; };
 		EA0B4E5324C17B9500C36EFF /* FourSquareVenue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourSquareVenue.swift; sourceTree = "<group>"; };
 		EA0B4E5624C17BFF00C36EFF /* FourSquareVenueVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourSquareVenueVM.swift; sourceTree = "<group>"; };
+		EA0B4E5924C1810100C36EFF /* VenueCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueCell.swift; sourceTree = "<group>"; };
 		EAC4418024C14D0B00027B04 /* NearBy-IOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NearBy-IOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAC4418324C14D0B00027B04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EAC4418724C14D0B00027B04 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 			children = (
 				EAC4418724C14D0B00027B04 /* MainVC.swift */,
 				EA0B4E4F24C1761800C36EFF /* MainVCViewModel.swift */,
+				EA0B4E5924C1810100C36EFF /* VenueCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 				EAC441AA24C164A500027B04 /* FourSquareNetworking.swift in Sources */,
 				EA0B4E5424C17B9500C36EFF /* FourSquareVenue.swift in Sources */,
 				EAC4419E24C14F0700027B04 /* BaseAPI.swift in Sources */,
+				EA0B4E5A24C1810100C36EFF /* VenueCell.swift in Sources */,
 				EAC441AC24C1653800027B04 /* FourSquareAPI.swift in Sources */,
 				EA0B4E4A24C16D4C00C36EFF /* LocationUpdatesManager.swift in Sources */,
 				EA0B4E5024C1761800C36EFF /* MainVCViewModel.swift in Sources */,
