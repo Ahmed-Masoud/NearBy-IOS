@@ -68,14 +68,13 @@ extension MainVCViewModel: MainVCViewModelProtocol {
         api?.getPhotos(for: venue) { [weak self] (result) in
             switch result {
             case .success(let response):
-//                guard let photo = response else { return }
                 self?.semaphore.wait()
                 self?.venues[at.row].image = FourSquarePhotoVM(photo: response ?? FourSquareVenuePhoto())
                 self?.view?.imageLoaded(for: at)
                 self?.semaphore.signal()
             case .failure(let error):
                 print(error)
-                self?.view?.showError(message: error.userInfo[NSLocalizedDescriptionKey] as? String ?? "")
+//                self?.view?.showError(message: error.userInfo[NSLocalizedDescriptionKey] as? String ?? "")
             }
         }
     }
