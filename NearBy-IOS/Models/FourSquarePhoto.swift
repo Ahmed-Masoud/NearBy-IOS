@@ -13,6 +13,10 @@ class FourSquareVenuePhoto: Mappable {
     var prefix: String?
     var suffix: String?
     
+    init() {
+        
+    }
+    
     // MARK:- JSON
     required init?(map: Map) {
         self.mapping(map: map)

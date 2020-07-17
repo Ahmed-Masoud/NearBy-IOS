@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 
 enum FourSquareNetworking {
-    case getLocations(lat: Double, lon: Double)
+    case getLocations(lat: Double, lon: Double, offset: Int, limit: Int)
     case getImages(venue: String)
 }
 
@@ -40,12 +40,15 @@ extension FourSquareNetworking: TargetType {
     
     var task: Task {
         switch self {
-        case let .getLocations(lat, lon):
+        case let .getLocations(lat, lon, offset, limit):
             let params: [String: Any] = [
                 "ll": "\(lat),\(lon)",
                 "client_id": App.fourSquareClientID.rawValue,
                 "client_secret": App.fourSquareClientSecret.rawValue,
-                "v": "20190425"
+                "v": "20190425",
+                "offset": offset,
+                "limit": limit,
+                "radius": 1000
             ]
             return .requestParameters(parameters: params, encoding: URLEncoding.default)
         case .getImages:

@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import CoreLocation
 
 protocol MainVCProtocol: class {
     func dataFetched()
     func showError(message: String)
+    func imageLoaded(for index: IndexPath)
 }
 
 class MainVC: UIViewController {
@@ -19,6 +21,8 @@ class MainVC: UIViewController {
     
     //MARK:- Properties
     var viewModel: MainVCViewModelProtocol?
+    private var loadingData = true
+    private var currentLocation: CLLocationCoordinate2D?
     
     //MARK:- LifeCycle
     override func viewDidLoad() {
@@ -27,11 +31,12 @@ class MainVC: UIViewController {
         venuesTable.estimatedRowHeight = 600
         LocationUpdatesManager.shared.startUpdates()
         LocationUpdatesManager.shared.didExceedThreshold = { [weak self] (location) in
-            self?.viewModel?.fetchVenues(for: (location.latitude,location.longitude))
+            self?.currentLocation = location
+            self?.viewModel?.fetchVenues(for: (location.latitude,location.longitude), isFirstLoad: true)
         }
     }
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         venuesTable.startLoading()
     }
     
@@ -53,20 +58,38 @@ extension MainVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "\(VenueCell.self)", for: indexPath) as? VenueCell, let venue = viewModel?.venue(for: indexPath.row) {
             cell.update(with: venue)
+            if venue.image == nil {
+                viewModel?.fetchImage(for: venue.id ?? "", at: indexPath)
+            }
             return cell
         }
         return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let lastElement = (viewModel?.numberOfRows ?? 0) - 1
+        if !loadingData && indexPath.row == lastElement {
+            loadingData = true
+            if let loc = currentLocation {
+                self.viewModel?.fetchVenues(for: (loc.latitude, loc.longitude), isFirstLoad: false)
+            }
+        }
     }
 }
 
 extension MainVC: MainVCProtocol {
     func dataFetched() {
+        loadingData = false
         venuesTable.stopLoading()
         venuesTable.reloadData()
     }
     
     func showError(message: String) {
         
+    }
+    
+    func imageLoaded(for index: IndexPath) {
+        venuesTable.reloadRows(at: [index], with: .automatic)
     }
 }
 

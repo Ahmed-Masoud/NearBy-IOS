@@ -14,7 +14,7 @@ class LocationUpdatesManager: NSObject, CLLocationManagerDelegate {
     static let shared = LocationUpdatesManager()
     private var locationManager: CLLocationManager?
     private var lastUpdate: CLLocationCoordinate2D?
-    private var distanceThreshold: Double = 1000
+    private var distanceThreshold: Double = 500
     var didExceedThreshold: ((_ loc: CLLocationCoordinate2D)->())?
     
     //MARK:- Methods

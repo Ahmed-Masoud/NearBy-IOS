@@ -25,22 +25,30 @@ class VenueCell: UITableViewCell {
     func update(with venue: FourSquareVenueVMProtocol) {
         nameLabel.text = venue.name
         addressLabel.text = venue.address
-        self.venueImageView.image = nil
-        loadImage(venue: venue.id ?? "")
-    }
-    
-    func loadImage(venue: String) {
-        let api = FourSquareAPI()
-        api.getPhotos(for: venue) { [weak self] (result) in
-            switch result {
-            case .success(let response):
-                guard let photo = response else { return }
-                self?.venueImageView.kf.indicatorType = .activity
-                let vm = FourSquarePhotoVM(photo: photo)
-                self?.venueImageView.kf.setImage(with: URL(string: vm.url ?? ""), options : [ .transition(.fade(1)) ])
-            case .failure(let err):
-                print(err)
+        self.venueImageView.kf.indicatorType = .activity
+        if let image = venue.image {
+            if let url = image.url {
+                self.venueImageView.kf.setImage(with: URL(string: url), options : [ .transition(.fade(1)) ])
+            } else {
+                self.venueImageView.kf.setImage(with: URL(string: "https://www.labotec.co.za/wp-content/uploads/placeholder.png"), options : [ .transition(.fade(1)) ])
             }
         }
+//        self.venueImageView.image = nil
+//        loadImage(venue: venue.id ?? "")
     }
+    
+//    func loadImage(venue: String) {
+//        let api = FourSquareAPI()
+//        api.getPhotos(for: venue) { [weak self] (result) in
+//            switch result {
+//            case .success(let response):
+//                guard let photo = response else { return }
+//                self?.venueImageView.kf.indicatorType = .activity
+//                let vm = FourSquarePhotoVM(photo: photo)
+//                self?.venueImageView.kf.setImage(with: URL(string: vm.url ?? ""), options : [ .transition(.fade(1)) ])
+//            case .failure(let err):
+//                print(err)
+//            }
+//        }
+//    }
 }

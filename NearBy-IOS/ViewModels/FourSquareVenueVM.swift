@@ -12,6 +12,7 @@ protocol FourSquareVenueVMProtocol {
     var id: String? { get }
     var name: String? { get }
     var address: String { get }
+    var image: FourSquarePhotoVMProtocol? { get set }
 }
 
 class FourSquareVenueVM: FourSquareVenueVMProtocol {
@@ -35,5 +36,14 @@ class FourSquareVenueVM: FourSquareVenueVMProtocol {
         venue?.formattedAddress?.forEach({finalString += "\($0),"})
         finalString.removeLast() // removes lat , in string
         return finalString
+    }
+    
+    var image: FourSquarePhotoVMProtocol? {
+        get {
+            return venue?.image
+        }
+        set {
+            venue?.image = newValue
+        }
     }
 }

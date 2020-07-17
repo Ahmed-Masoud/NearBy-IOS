@@ -13,6 +13,7 @@ class FourSquareVenueModel: Mappable {
     var id: String?
     var name: String?
     var formattedAddress: [String]?
+    var image: FourSquarePhotoVMProtocol?
     
     // MARK:- JSON
     required init?(map: Map) {

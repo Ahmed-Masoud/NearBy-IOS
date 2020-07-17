@@ -11,6 +11,7 @@ import ObjectMapper
 
 class FourSquareVenueModelResponse: Mappable {
     var items: [FourSquareVenueModel]?
+    var totalItems: Int?
     
     // MARK:- JSON
     required init?(map: Map) {
@@ -19,6 +20,7 @@ class FourSquareVenueModelResponse: Mappable {
     
     
     func mapping(map: Map) {
+        totalItems <- map["response.totalResults"]
         items <- map["response.groups.0.items"]
     }
 }

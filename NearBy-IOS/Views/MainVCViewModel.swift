@@ -11,8 +11,9 @@ import Foundation
 protocol MainVCViewModelProtocol {
     var numberOfRows: Int? { get }
     func setDependencies(view: MainVCProtocol?, api: FourSquareAPIProtocol?)
-    func fetchVenues(for location: (Double, Double))
+    func fetchVenues(for location: (Double, Double), isFirstLoad: Bool)
     func venue(for index: Int) -> FourSquareVenueVMProtocol?
+    func fetchImage(for venue: String, at: IndexPath)
 }
 
 class MainVCViewModel {
@@ -21,7 +22,9 @@ class MainVCViewModel {
     private weak var view: MainVCProtocol?
     private var api: FourSquareAPIProtocol?
     private var venues: [FourSquareVenueVMProtocol] = []
-    
+    private var limit = 20
+    private var page = 0
+    private var totalItems = 0
 }
 
 extension MainVCViewModel: MainVCViewModelProtocol {
@@ -35,11 +38,14 @@ extension MainVCViewModel: MainVCViewModelProtocol {
         self.api = api
     }
     
-    func fetchVenues(for location: (Double, Double)) {
-        api?.getLocations(lat: location.0, lon: location.1) { [weak self] (result) in
+    func fetchVenues(for location: (Double, Double), isFirstLoad: Bool) {
+        if !isFirstLoad && venues.count >= totalItems { return }
+        api?.getLocations(lat: location.0, lon: location.1, offset: page*limit, limit: limit) { [weak self] (result) in
             switch result {
             case .success(let res):
-                self?.venues = (res?.items ?? []).map({FourSquareVenueVM(venue: $0)})
+                self?.page += 1
+                self?.totalItems = res?.totalItems ?? 0
+                self?.venues += (res?.items ?? []).map({FourSquareVenueVM(venue: $0)})
                 self?.view?.dataFetched()
             case .failure(let error):
                 print(error)
@@ -49,5 +55,18 @@ extension MainVCViewModel: MainVCViewModelProtocol {
     
     func venue(for index: Int) -> FourSquareVenueVMProtocol? {
         return venues[index]
+    }
+    
+    func fetchImage(for venue: String, at: IndexPath) {
+        api?.getPhotos(for: venue) { [weak self] (result) in
+            switch result {
+            case .success(let response):
+//                guard let photo = response else { return }
+                self?.venues[at.row].image = FourSquarePhotoVM(photo: response ?? FourSquareVenuePhoto())
+                self?.view?.imageLoaded(for: at)
+            case .failure(let err):
+                print(err)
+            }
+        }
     }
 }
