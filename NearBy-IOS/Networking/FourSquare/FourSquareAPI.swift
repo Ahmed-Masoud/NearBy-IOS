@@ -9,7 +9,7 @@
 import Foundation
 
 protocol FourSquareAPIProtocol {
-    func getLocations(completion: @escaping (Result<FourSquareMainResponse?, NSError>) -> Void)
+    func getLocations(lat: Double, lon: Double, completion: @escaping (Result<FourSquareMainResponse?, NSError>) -> Void)
 }
 
 
@@ -17,8 +17,8 @@ class FourSquareAPI: BaseAPI<FourSquareNetworking>, FourSquareAPIProtocol {
     
     //MARK:- Requests
     
-    func getLocations(completion: @escaping (Result<FourSquareMainResponse?, NSError>) -> Void) {
-        self.fetchData(target: .getLocations, responseClass: FourSquareMainResponse.self) { (result) in
+    func getLocations(lat: Double, lon: Double, completion: @escaping (Result<FourSquareMainResponse?, NSError>) -> Void) {
+        self.fetchData(target: .getLocations(lat: lat, lon: lon), responseClass: FourSquareMainResponse.self) { (result) in
             completion(result)
         }
     }

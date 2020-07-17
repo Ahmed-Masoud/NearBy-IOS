@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 
 enum FourSquareNetworking {
-    case getLocations
+    case getLocations(lat: Double, lon: Double)
 }
 
 extension FourSquareNetworking: TargetType {
@@ -37,9 +37,9 @@ extension FourSquareNetworking: TargetType {
     
     var task: Task {
         switch self {
-        case .getLocations:
-            var params: [String: Any] = [
-                "ll": "40.74224,-73.99386",
+        case let .getLocations(lat, lon):
+            let params: [String: Any] = [
+                "ll": "\(lat),\(lon)",
                 "client_id": App.fourSquareClientID.rawValue,
                 "client_secret": App.fourSquareClientSecret.rawValue,
                 "v": "20190425"

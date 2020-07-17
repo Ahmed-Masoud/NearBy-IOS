@@ -13,12 +13,15 @@ class LoadingVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let api = FourSquareAPI()
-        api.getLocations { (result) in
-            switch result {
-            case .success(let res):
-                res?.response?.groups?.first?.items?.forEach({print($0.venue?.name)})
-            case .failure(let error):
-                print(error)
+        LocationUpdatesManager.shared.startUpdates()
+        LocationUpdatesManager.shared.didExceedThreshold = { (location) in
+            api.getLocations(lat: location.latitude, lon: location.longitude) { (result) in
+                switch result {
+                case .success(let res):
+                    res?.response?.groups?.first?.items?.forEach({print($0.venue?.name)})
+                case .failure(let error):
+                    print(error)
+                }
             }
         }
     }

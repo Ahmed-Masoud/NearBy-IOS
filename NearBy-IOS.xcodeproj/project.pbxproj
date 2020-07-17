@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		777ED384F8E023335DC42068 /* Pods_NearBy_IOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 689CA78965A884772A9D8AFB /* Pods_NearBy_IOS.framework */; };
+		EA0B4E4A24C16D4C00C36EFF /* LocationUpdatesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0B4E4924C16D4C00C36EFF /* LocationUpdatesManager.swift */; };
+		EA0B4E4D24C16E2400C36EFF /* CLLocation+distance.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0B4E4C24C16E2400C36EFF /* CLLocation+distance.swift */; };
 		EAC4418424C14D0B00027B04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC4418324C14D0B00027B04 /* AppDelegate.swift */; };
 		EAC4418824C14D0B00027B04 /* LoadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC4418724C14D0B00027B04 /* LoadingVC.swift */; };
 		EAC4418B24C14D0B00027B04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAC4418924C14D0B00027B04 /* Main.storyboard */; };
@@ -25,6 +27,8 @@
 		689CA78965A884772A9D8AFB /* Pods_NearBy_IOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NearBy_IOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D7D7F0D4315730933154639 /* Pods-NearBy-IOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NearBy-IOS.release.xcconfig"; path = "Target Support Files/Pods-NearBy-IOS/Pods-NearBy-IOS.release.xcconfig"; sourceTree = "<group>"; };
 		A9BF15EBDD4FA576F5C097EA /* Pods-NearBy-IOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NearBy-IOS.debug.xcconfig"; path = "Target Support Files/Pods-NearBy-IOS/Pods-NearBy-IOS.debug.xcconfig"; sourceTree = "<group>"; };
+		EA0B4E4924C16D4C00C36EFF /* LocationUpdatesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationUpdatesManager.swift; sourceTree = "<group>"; };
+		EA0B4E4C24C16E2400C36EFF /* CLLocation+distance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocation+distance.swift"; sourceTree = "<group>"; };
 		EAC4418024C14D0B00027B04 /* NearBy-IOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NearBy-IOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAC4418324C14D0B00027B04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EAC4418724C14D0B00027B04 /* LoadingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingVC.swift; sourceTree = "<group>"; };
@@ -69,6 +73,22 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		EA0B4E4B24C16D5300C36EFF /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				EA0B4E4924C16D4C00C36EFF /* LocationUpdatesManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		EA0B4E4E24C16E2A00C36EFF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				EA0B4E4C24C16E2400C36EFF /* CLLocation+distance.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		EAC4417724C14D0B00027B04 = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +115,8 @@
 				EAC4419924C14DEC00027B04 /* Views */,
 				EAC4419824C14DE200027B04 /* Resources */,
 				EAC4419124C14D0C00027B04 /* Info.plist */,
+				EA0B4E4B24C16D5300C36EFF /* Managers */,
+				EA0B4E4E24C16E2A00C36EFF /* Extensions */,
 			);
 			path = "NearBy-IOS";
 			sourceTree = "<group>";
@@ -272,10 +294,12 @@
 			files = (
 				EAC441AF24C1670F00027B04 /* Responses.swift in Sources */,
 				EAC441A024C14F2A00027B04 /* Constants.swift in Sources */,
+				EA0B4E4D24C16E2400C36EFF /* CLLocation+distance.swift in Sources */,
 				EAC4419C24C14EE300027B04 /* TargetType.swift in Sources */,
 				EAC441AA24C164A500027B04 /* FourSquareNetworking.swift in Sources */,
 				EAC4419E24C14F0700027B04 /* BaseAPI.swift in Sources */,
 				EAC441AC24C1653800027B04 /* FourSquareAPI.swift in Sources */,
+				EA0B4E4A24C16D4C00C36EFF /* LocationUpdatesManager.swift in Sources */,
 				EAC4418824C14D0B00027B04 /* LoadingVC.swift in Sources */,
 				EAC4418424C14D0B00027B04 /* AppDelegate.swift in Sources */,
 			);
@@ -433,7 +457,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.AhmedMasoud.NearBy-IOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "NearBy-IOS/Foursquare Auth/NearBy-IOS-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -456,7 +480,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.AhmedMasoud.NearBy-IOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "NearBy-IOS/Foursquare Auth/NearBy-IOS-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
