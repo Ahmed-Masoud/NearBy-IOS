@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,9 @@
 		EAC4418B24C14D0B00027B04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAC4418924C14D0B00027B04 /* Main.storyboard */; };
 		EAC4418D24C14D0C00027B04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAC4418C24C14D0C00027B04 /* Assets.xcassets */; };
 		EAC4419024C14D0C00027B04 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAC4418E24C14D0C00027B04 /* LaunchScreen.storyboard */; };
+		EAC4419C24C14EE300027B04 /* TargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC4419B24C14EE300027B04 /* TargetType.swift */; };
+		EAC4419E24C14F0700027B04 /* BaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC4419D24C14F0700027B04 /* BaseAPI.swift */; };
+		EAC441A024C14F2A00027B04 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC4419F24C14F2A00027B04 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,9 @@
 		EAC4418C24C14D0C00027B04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EAC4418F24C14D0C00027B04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EAC4419124C14D0C00027B04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EAC4419B24C14EE300027B04 /* TargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetType.swift; sourceTree = "<group>"; };
+		EAC4419D24C14F0700027B04 /* BaseAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAPI.swift; sourceTree = "<group>"; };
+		EAC4419F24C14F2A00027B04 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +60,6 @@
 				A9BF15EBDD4FA576F5C097EA /* Pods-NearBy-IOS.debug.xcconfig */,
 				9D7D7F0D4315730933154639 /* Pods-NearBy-IOS.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -79,6 +84,7 @@
 		EAC4418224C14D0B00027B04 /* NearBy-IOS */ = {
 			isa = PBXGroup;
 			children = (
+				EAC4419A24C14ED600027B04 /* Networking */,
 				EAC4419724C14DA600027B04 /* Shared */,
 				EAC4419924C14DEC00027B04 /* Views */,
 				EAC4419824C14DE200027B04 /* Resources */,
@@ -91,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				EAC4418324C14D0B00027B04 /* AppDelegate.swift */,
+				EAC4419F24C14F2A00027B04 /* Constants.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -111,6 +118,23 @@
 				EAC4418724C14D0B00027B04 /* LoadingVC.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		EAC4419A24C14ED600027B04 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				EAC441A124C14F7100027B04 /* Base */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		EAC441A124C14F7100027B04 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				EAC4419B24C14EE300027B04 /* TargetType.swift */,
+				EAC4419D24C14F0700027B04 /* BaseAPI.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,6 +252,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAC441A024C14F2A00027B04 /* Constants.swift in Sources */,
+				EAC4419C24C14EE300027B04 /* TargetType.swift in Sources */,
+				EAC4419E24C14F0700027B04 /* BaseAPI.swift in Sources */,
 				EAC4418824C14D0B00027B04 /* LoadingVC.swift in Sources */,
 				EAC4418424C14D0B00027B04 /* AppDelegate.swift in Sources */,
 			);
