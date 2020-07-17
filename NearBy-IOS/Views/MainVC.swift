@@ -32,6 +32,7 @@ class MainVC: UIViewController {
         LocationUpdatesManager.shared.startUpdates()
         LocationUpdatesManager.shared.didExceedThreshold = { [weak self] (location) in
             self?.currentLocation = location
+            self?.loadingData = true
             self?.viewModel?.fetchVenues(for: (location.latitude,location.longitude), isFirstLoad: true)
         }
     }
@@ -69,8 +70,8 @@ extension MainVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let lastElement = (viewModel?.numberOfRows ?? 0) - 1
         if !loadingData && indexPath.row == lastElement {
-            loadingData = true
             if let loc = currentLocation {
+                loadingData = true
                 self.viewModel?.fetchVenues(for: (loc.latitude, loc.longitude), isFirstLoad: false)
             }
         }
@@ -89,7 +90,8 @@ extension MainVC: MainVCProtocol {
     }
     
     func imageLoaded(for index: IndexPath) {
-        venuesTable.reloadRows(at: [index], with: .automatic)
+        guard let venue = viewModel?.venue(for: index.row) else { return }
+        (venuesTable.cellForRow(at: index) as? VenueCell)?.update(with: venue)
     }
 }
 

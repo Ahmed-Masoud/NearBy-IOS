@@ -25,6 +25,7 @@ class MainVCViewModel {
     private var limit = 20
     private var page = 0
     private var totalItems = 0
+    private let semaphore = DispatchSemaphore(value: 1)
 }
 
 extension MainVCViewModel: MainVCViewModelProtocol {
@@ -40,6 +41,7 @@ extension MainVCViewModel: MainVCViewModelProtocol {
     
     func fetchVenues(for location: (Double, Double), isFirstLoad: Bool) {
         if !isFirstLoad && venues.count >= totalItems { return }
+        if isFirstLoad { venues.removeAll() }
         api?.getLocations(lat: location.0, lon: location.1, offset: page*limit, limit: limit) { [weak self] (result) in
             switch result {
             case .success(let res):
@@ -62,8 +64,10 @@ extension MainVCViewModel: MainVCViewModelProtocol {
             switch result {
             case .success(let response):
 //                guard let photo = response else { return }
+                self?.semaphore.wait()
                 self?.venues[at.row].image = FourSquarePhotoVM(photo: response ?? FourSquareVenuePhoto())
                 self?.view?.imageLoaded(for: at)
+                self?.semaphore.signal()
             case .failure(let err):
                 print(err)
             }
