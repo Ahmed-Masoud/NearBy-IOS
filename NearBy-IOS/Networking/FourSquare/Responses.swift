@@ -7,19 +7,18 @@
 //
 
 import Foundation
+import ObjectMapper
 
-class FourSquareMainResponse: Codable {
-    var response: FourSquareResponse?
-}
-
-class FourSquareResponse: Codable {
-    var groups: [FourSquareGroup]?
-}
-
-class FourSquareGroup: Codable {
-    var items: [FourSquareItem]?
-}
-
-class FourSquareItem: Codable {
-    var venue: FourSquareVenue?
+class FourSquareVenueModelResponse: Mappable {
+    var items: [FourSquareVenueModel]?
+    
+    // MARK:- JSON
+    required init?(map: Map) {
+        self.mapping(map: map)
+    }
+    
+    
+    func mapping(map: Map) {
+        items <- map["response.groups.0.items"]
+    }
 }

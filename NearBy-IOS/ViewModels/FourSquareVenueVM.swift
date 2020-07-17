@@ -15,9 +15,9 @@ protocol FourSquareVenueVMProtocol {
 
 class FourSquareVenueVM: FourSquareVenueVMProtocol {
     
-    var venue: FourSquareVenue?
+    var venue: FourSquareVenueModel?
     
-    init(venue: FourSquareVenue) {
+    init(venue: FourSquareVenueModel) {
         self.venue = venue
     }
     

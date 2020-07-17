@@ -7,12 +7,20 @@
 //
 
 import Foundation
+import ObjectMapper
 
-class FourSquareVenue: Codable {
+class FourSquareVenueModel: Mappable {
     var name: String?
     var formattedAddress: [String]?
     
-    enum CodingKeys: String, CodingKey {
-        case name
-        case formattedAddress = "formattedAddress"
+    // MARK:- JSON
+    required init?(map: Map) {
+        self.mapping(map: map)
+    }
+    
+    
+    func mapping(map: Map) {
+        name <- map["venue.name"]
+        formattedAddress <- map["venue.location.formattedAddress"]
+    }
 }

@@ -31,7 +31,7 @@ extension MainVCViewModel: MainVCViewModelProtocol {
         api?.getLocations(lat: location.0, lon: location.1) { (result) in
             switch result {
             case .success(let res):
-                res?.response?.groups?.first?.items?.forEach({print($0.venue?.name)})
+                res?.items?.forEach({print("\($0.name) => \($0.formattedAddress)")})
             case .failure(let error):
                 print(error)
             }

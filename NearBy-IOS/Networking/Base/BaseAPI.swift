@@ -8,10 +8,11 @@
 
 import Foundation
 import Alamofire
+import ObjectMapper
 
 class BaseAPI<T: TargetType> {
     
-    func fetchData<M: Decodable>(target: T, responseClass: M.Type, completion:@escaping (Result<M?, NSError>) -> Void) {
+    func fetchData<M: Mappable>(target: T, responseClass: M.Type, completion:@escaping (Result<M?, NSError>) -> Void) {
         let method = Alamofire.HTTPMethod(rawValue: target.method.rawValue)
         let headers = Alamofire.HTTPHeaders(target.headers ?? [:])
         let params = buildParams(task: target.task)
@@ -29,17 +30,14 @@ class BaseAPI<T: TargetType> {
                     completion(.failure(NSError()))
                     return
                 }
-                guard let theJSONData = try? JSONSerialization.data(withJSONObject: jsonResponse, options: []) else {
+                
+                guard let obj = Mapper<M>().map(JSONObject: jsonResponse) else {
                     // ADD Custom Error
                     completion(.failure(NSError()))
                     return
                 }
-                guard let responseObj = try? JSONDecoder().decode(M.self, from: theJSONData) else {
-                    // ADD Custom Error
-                    completion(.failure(NSError()))
-                    return
-                }
-                completion(.success(responseObj))
+                
+                completion(.success(obj))
             } else {
                 // ADD custom error base on status code 404 / 401 /
                 completion(.failure(NSError()))
