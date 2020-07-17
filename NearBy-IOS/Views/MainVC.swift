@@ -23,6 +23,7 @@ class MainVC: UIViewController {
     var viewModel: MainVCViewModelProtocol?
     private var loadingData = true
     private var currentLocation: CLLocationCoordinate2D?
+    var errorView: ErrorView?
     
     //MARK:- LifeCycle
     override func viewDidLoad() {
@@ -97,13 +98,21 @@ extension MainVC: UITableViewDelegate, UITableViewDataSource {
 
 extension MainVC: MainVCProtocol {
     func dataFetched() {
+        errorView?.removeFromSuperview()
         loadingData = false
         venuesTable.stopLoading()
+        if viewModel?.numberOfRows == 0 {
+            errorView = ErrorView(frame: venuesTable.frame)
+            errorView?.updateWith(image: UIImage(named: "noData")!, text: "No Results !\nTry moving around")
+            self.view.addSubview(errorView!)
+        }
         venuesTable.reloadData()
     }
     
     func showError(message: String) {
-        
+        errorView = ErrorView(frame: venuesTable.frame)
+        errorView?.updateWith(image: UIImage(named: "errorIcon")!, text: message)
+        self.view.addSubview(errorView!)
     }
     
     func imageLoaded(for index: IndexPath) {

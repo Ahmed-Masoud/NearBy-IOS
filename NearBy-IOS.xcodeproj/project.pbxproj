@@ -31,6 +31,8 @@
 		EAC441AC24C1653800027B04 /* FourSquareAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC441AB24C1653800027B04 /* FourSquareAPI.swift */; };
 		EAC441AF24C1670F00027B04 /* FourSquareVenueModelResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC441AE24C1670F00027B04 /* FourSquareVenueModelResponse.swift */; };
 		EAD2FA1524C22D0100313D59 /* UIView+CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD2FA1424C22D0100313D59 /* UIView+CornerRadius.swift */; };
+		EAD2FA1724C2353F00313D59 /* ErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAD2FA1624C2353F00313D59 /* ErrorView.xib */; };
+		EAD2FA1A24C2355500313D59 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD2FA1924C2355500313D59 /* ErrorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +64,8 @@
 		EAC441AB24C1653800027B04 /* FourSquareAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourSquareAPI.swift; sourceTree = "<group>"; };
 		EAC441AE24C1670F00027B04 /* FourSquareVenueModelResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourSquareVenueModelResponse.swift; sourceTree = "<group>"; };
 		EAD2FA1424C22D0100313D59 /* UIView+CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+CornerRadius.swift"; sourceTree = "<group>"; };
+		EAD2FA1624C2353F00313D59 /* ErrorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ErrorView.xib; sourceTree = "<group>"; };
+		EAD2FA1924C2355500313D59 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +193,7 @@
 				EAC4418724C14D0B00027B04 /* MainVC.swift */,
 				EA0B4E4F24C1761800C36EFF /* MainVCViewModel.swift */,
 				EA0B4E5924C1810100C36EFF /* VenueCell.swift */,
+				EAD2FA1824C2354600313D59 /* Error */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -220,6 +225,15 @@
 				EAC441AE24C1670F00027B04 /* FourSquareVenueModelResponse.swift */,
 			);
 			path = FourSquare;
+			sourceTree = "<group>";
+		};
+		EAD2FA1824C2354600313D59 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				EAD2FA1624C2353F00313D59 /* ErrorView.xib */,
+				EAD2FA1924C2355500313D59 /* ErrorView.swift */,
+			);
+			path = Error;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,6 +300,7 @@
 				EAC4419024C14D0C00027B04 /* LaunchScreen.storyboard in Resources */,
 				EAC4418D24C14D0C00027B04 /* Assets.xcassets in Resources */,
 				EAC4418B24C14D0B00027B04 /* Main.storyboard in Resources */,
+				EAD2FA1724C2353F00313D59 /* ErrorView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +357,7 @@
 				EA0B4E5E24C1854900C36EFF /* UIView+Loading.swift in Sources */,
 				EAC441A024C14F2A00027B04 /* Constants.swift in Sources */,
 				EA0B4E4D24C16E2400C36EFF /* CLLocation+distance.swift in Sources */,
+				EAD2FA1A24C2355500313D59 /* ErrorView.swift in Sources */,
 				EA0B4E6424C197C000C36EFF /* BaseError.swift in Sources */,
 				EA0B4E5724C17BFF00C36EFF /* FourSquareVenueVM.swift in Sources */,
 				EAC4419C24C14EE300027B04 /* TargetType.swift in Sources */,
