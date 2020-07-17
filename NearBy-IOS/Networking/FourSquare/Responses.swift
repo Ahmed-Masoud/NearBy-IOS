@@ -23,7 +23,3 @@ class FourSquareGroup: Codable {
 class FourSquareItem: Codable {
     var venue: FourSquareVenue?
 }
-
-class FourSquareVenue: Codable {
-    var name: String?
-}

@@ -12,6 +12,8 @@
 		EA0B4E4D24C16E2400C36EFF /* CLLocation+distance.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0B4E4C24C16E2400C36EFF /* CLLocation+distance.swift */; };
 		EA0B4E5024C1761800C36EFF /* MainVCViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0B4E4F24C1761800C36EFF /* MainVCViewModel.swift */; };
 		EA0B4E5224C177D900C36EFF /* UIViewController+Create.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0B4E5124C177D900C36EFF /* UIViewController+Create.swift */; };
+		EA0B4E5424C17B9500C36EFF /* FourSquareVenue.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0B4E5324C17B9500C36EFF /* FourSquareVenue.swift */; };
+		EA0B4E5724C17BFF00C36EFF /* FourSquareVenueVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0B4E5624C17BFF00C36EFF /* FourSquareVenueVM.swift */; };
 		EAC4418424C14D0B00027B04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC4418324C14D0B00027B04 /* AppDelegate.swift */; };
 		EAC4418824C14D0B00027B04 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC4418724C14D0B00027B04 /* MainVC.swift */; };
 		EAC4418B24C14D0B00027B04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAC4418924C14D0B00027B04 /* Main.storyboard */; };
@@ -33,6 +35,8 @@
 		EA0B4E4C24C16E2400C36EFF /* CLLocation+distance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocation+distance.swift"; sourceTree = "<group>"; };
 		EA0B4E4F24C1761800C36EFF /* MainVCViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVCViewModel.swift; sourceTree = "<group>"; };
 		EA0B4E5124C177D900C36EFF /* UIViewController+Create.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Create.swift"; sourceTree = "<group>"; };
+		EA0B4E5324C17B9500C36EFF /* FourSquareVenue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourSquareVenue.swift; sourceTree = "<group>"; };
+		EA0B4E5624C17BFF00C36EFF /* FourSquareVenueVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourSquareVenueVM.swift; sourceTree = "<group>"; };
 		EAC4418024C14D0B00027B04 /* NearBy-IOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NearBy-IOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAC4418324C14D0B00027B04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EAC4418724C14D0B00027B04 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
@@ -94,6 +98,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		EA0B4E5524C17B9D00C36EFF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EA0B4E5324C17B9500C36EFF /* FourSquareVenue.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		EAC4417724C14D0B00027B04 = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +134,8 @@
 				EAC4419124C14D0C00027B04 /* Info.plist */,
 				EA0B4E4B24C16D5300C36EFF /* Managers */,
 				EA0B4E4E24C16E2A00C36EFF /* Extensions */,
+				EA0B4E5524C17B9D00C36EFF /* Models */,
+				EA0B4E5624C17BFF00C36EFF /* FourSquareVenueVM.swift */,
 			);
 			path = "NearBy-IOS";
 			sourceTree = "<group>";
@@ -301,9 +315,11 @@
 				EAC441AF24C1670F00027B04 /* Responses.swift in Sources */,
 				EAC441A024C14F2A00027B04 /* Constants.swift in Sources */,
 				EA0B4E4D24C16E2400C36EFF /* CLLocation+distance.swift in Sources */,
+				EA0B4E5724C17BFF00C36EFF /* FourSquareVenueVM.swift in Sources */,
 				EAC4419C24C14EE300027B04 /* TargetType.swift in Sources */,
 				EA0B4E5224C177D900C36EFF /* UIViewController+Create.swift in Sources */,
 				EAC441AA24C164A500027B04 /* FourSquareNetworking.swift in Sources */,
+				EA0B4E5424C17B9500C36EFF /* FourSquareVenue.swift in Sources */,
 				EAC4419E24C14F0700027B04 /* BaseAPI.swift in Sources */,
 				EAC441AC24C1653800027B04 /* FourSquareAPI.swift in Sources */,
 				EA0B4E4A24C16D4C00C36EFF /* LocationUpdatesManager.swift in Sources */,
