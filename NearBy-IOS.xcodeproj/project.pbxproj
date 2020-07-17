@@ -30,6 +30,7 @@
 		EAC441AA24C164A500027B04 /* FourSquareNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC441A924C164A500027B04 /* FourSquareNetworking.swift */; };
 		EAC441AC24C1653800027B04 /* FourSquareAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC441AB24C1653800027B04 /* FourSquareAPI.swift */; };
 		EAC441AF24C1670F00027B04 /* FourSquareVenueModelResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC441AE24C1670F00027B04 /* FourSquareVenueModelResponse.swift */; };
+		EAD2FA1524C22D0100313D59 /* UIView+CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD2FA1424C22D0100313D59 /* UIView+CornerRadius.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		EAC441A924C164A500027B04 /* FourSquareNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourSquareNetworking.swift; sourceTree = "<group>"; };
 		EAC441AB24C1653800027B04 /* FourSquareAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourSquareAPI.swift; sourceTree = "<group>"; };
 		EAC441AE24C1670F00027B04 /* FourSquareVenueModelResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourSquareVenueModelResponse.swift; sourceTree = "<group>"; };
+		EAD2FA1424C22D0100313D59 /* UIView+CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+CornerRadius.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				EA0B4E4C24C16E2400C36EFF /* CLLocation+distance.swift */,
 				EA0B4E5124C177D900C36EFF /* UIViewController+Create.swift */,
 				EA0B4E5D24C1854900C36EFF /* UIView+Loading.swift */,
+				EAD2FA1424C22D0100313D59 /* UIView+CornerRadius.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 				EAC4419C24C14EE300027B04 /* TargetType.swift in Sources */,
 				EA0B4E5224C177D900C36EFF /* UIViewController+Create.swift in Sources */,
 				EAC441AA24C164A500027B04 /* FourSquareNetworking.swift in Sources */,
+				EAD2FA1524C22D0100313D59 /* UIView+CornerRadius.swift in Sources */,
 				EA0B4E5424C17B9500C36EFF /* FourSquareVenue.swift in Sources */,
 				EA0B4E6024C18EC900C36EFF /* FourSquarePhoto.swift in Sources */,
 				EAC4419E24C14F0700027B04 /* BaseAPI.swift in Sources */,

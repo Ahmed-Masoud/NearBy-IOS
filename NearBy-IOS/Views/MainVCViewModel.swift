@@ -55,6 +55,7 @@ extension MainVCViewModel: MainVCViewModelProtocol {
                 self?.view?.dataFetched()
             case .failure(let error):
                 print(error)
+                self?.view?.showError(message: error.userInfo[NSLocalizedDescriptionKey] as? String ?? "")
             }
         }
     }
@@ -72,8 +73,9 @@ extension MainVCViewModel: MainVCViewModelProtocol {
                 self?.venues[at.row].image = FourSquarePhotoVM(photo: response ?? FourSquareVenuePhoto())
                 self?.view?.imageLoaded(for: at)
                 self?.semaphore.signal()
-            case .failure(let err):
-                print(err)
+            case .failure(let error):
+                print(error)
+                self?.view?.showError(message: error.userInfo[NSLocalizedDescriptionKey] as? String ?? "")
             }
         }
     }
