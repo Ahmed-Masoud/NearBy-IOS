@@ -16,6 +16,9 @@
 		EAC4419C24C14EE300027B04 /* TargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC4419B24C14EE300027B04 /* TargetType.swift */; };
 		EAC4419E24C14F0700027B04 /* BaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC4419D24C14F0700027B04 /* BaseAPI.swift */; };
 		EAC441A024C14F2A00027B04 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC4419F24C14F2A00027B04 /* Constants.swift */; };
+		EAC441AA24C164A500027B04 /* FourSquareNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC441A924C164A500027B04 /* FourSquareNetworking.swift */; };
+		EAC441AC24C1653800027B04 /* FourSquareAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC441AB24C1653800027B04 /* FourSquareAPI.swift */; };
+		EAC441AF24C1670F00027B04 /* Responses.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC441AE24C1670F00027B04 /* Responses.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		EAC4419B24C14EE300027B04 /* TargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetType.swift; sourceTree = "<group>"; };
 		EAC4419D24C14F0700027B04 /* BaseAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAPI.swift; sourceTree = "<group>"; };
 		EAC4419F24C14F2A00027B04 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		EAC441A924C164A500027B04 /* FourSquareNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourSquareNetworking.swift; sourceTree = "<group>"; };
+		EAC441AB24C1653800027B04 /* FourSquareAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourSquareAPI.swift; sourceTree = "<group>"; };
+		EAC441AE24C1670F00027B04 /* Responses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Responses.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				EAC441A124C14F7100027B04 /* Base */,
+				EAC441AD24C166FF00027B04 /* FourSquare */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -137,6 +144,16 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		EAC441AD24C166FF00027B04 /* FourSquare */ = {
+			isa = PBXGroup;
+			children = (
+				EAC441AB24C1653800027B04 /* FourSquareAPI.swift */,
+				EAC441A924C164A500027B04 /* FourSquareNetworking.swift */,
+				EAC441AE24C1670F00027B04 /* Responses.swift */,
+			);
+			path = FourSquare;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -148,7 +165,7 @@
 				EAC4417C24C14D0B00027B04 /* Sources */,
 				EAC4417D24C14D0B00027B04 /* Frameworks */,
 				EAC4417E24C14D0B00027B04 /* Resources */,
-				DB9855CE1613392B2CD72744 /* [CP] Embed Pods Frameworks */,
+				D1D2D56A51C2FF2EF5ECAD25 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -171,6 +188,7 @@
 				TargetAttributes = {
 					EAC4417F24C14D0B00027B04 = {
 						CreatedOnToolsVersion = 11.5;
+						LastSwiftMigration = 1150;
 					};
 				};
 			};
@@ -228,7 +246,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DB9855CE1613392B2CD72744 /* [CP] Embed Pods Frameworks */ = {
+		D1D2D56A51C2FF2EF5ECAD25 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -252,9 +270,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAC441AF24C1670F00027B04 /* Responses.swift in Sources */,
 				EAC441A024C14F2A00027B04 /* Constants.swift in Sources */,
 				EAC4419C24C14EE300027B04 /* TargetType.swift in Sources */,
+				EAC441AA24C164A500027B04 /* FourSquareNetworking.swift in Sources */,
 				EAC4419E24C14F0700027B04 /* BaseAPI.swift in Sources */,
+				EAC441AC24C1653800027B04 /* FourSquareAPI.swift in Sources */,
 				EAC4418824C14D0B00027B04 /* LoadingVC.swift in Sources */,
 				EAC4418424C14D0B00027B04 /* AppDelegate.swift in Sources */,
 			);
@@ -401,15 +422,19 @@
 			baseConfigurationReference = A9BF15EBDD4FA576F5C097EA /* Pods-NearBy-IOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CYKF9KP575;
 				INFOPLIST_FILE = "NearBy-IOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.AhmedMasoud.NearBy-IOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "NearBy-IOS/Foursquare Auth/NearBy-IOS-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -420,15 +445,18 @@
 			baseConfigurationReference = 9D7D7F0D4315730933154639 /* Pods-NearBy-IOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CYKF9KP575;
 				INFOPLIST_FILE = "NearBy-IOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.AhmedMasoud.NearBy-IOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "NearBy-IOS/Foursquare Auth/NearBy-IOS-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

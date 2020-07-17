@@ -9,12 +9,19 @@
 import UIKit
 
 class LoadingVC: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        let api = FourSquareAPI()
+        api.getLocations { (result) in
+            switch result {
+            case .success(let res):
+                res?.response?.groups?.first?.items?.forEach({print($0.venue?.name)})
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
-
 
 }
 
