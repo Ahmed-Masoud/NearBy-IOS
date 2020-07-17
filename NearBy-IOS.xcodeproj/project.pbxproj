@@ -16,6 +16,9 @@
 		EA0B4E5724C17BFF00C36EFF /* FourSquareVenueVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0B4E5624C17BFF00C36EFF /* FourSquareVenueVM.swift */; };
 		EA0B4E5A24C1810100C36EFF /* VenueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0B4E5924C1810100C36EFF /* VenueCell.swift */; };
 		EA0B4E5E24C1854900C36EFF /* UIView+Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0B4E5D24C1854900C36EFF /* UIView+Loading.swift */; };
+		EA0B4E6024C18EC900C36EFF /* FourSquarePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0B4E5F24C18EC900C36EFF /* FourSquarePhoto.swift */; };
+		EA0B4E6224C18F0300C36EFF /* FourSquarePhotoVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0B4E6124C18F0300C36EFF /* FourSquarePhotoVM.swift */; };
+		EA0B4E6424C197C000C36EFF /* BaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0B4E6324C197C000C36EFF /* BaseError.swift */; };
 		EAC4418424C14D0B00027B04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC4418324C14D0B00027B04 /* AppDelegate.swift */; };
 		EAC4418824C14D0B00027B04 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC4418724C14D0B00027B04 /* MainVC.swift */; };
 		EAC4418B24C14D0B00027B04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAC4418924C14D0B00027B04 /* Main.storyboard */; };
@@ -26,7 +29,7 @@
 		EAC441A024C14F2A00027B04 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC4419F24C14F2A00027B04 /* Constants.swift */; };
 		EAC441AA24C164A500027B04 /* FourSquareNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC441A924C164A500027B04 /* FourSquareNetworking.swift */; };
 		EAC441AC24C1653800027B04 /* FourSquareAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC441AB24C1653800027B04 /* FourSquareAPI.swift */; };
-		EAC441AF24C1670F00027B04 /* Responses.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC441AE24C1670F00027B04 /* Responses.swift */; };
+		EAC441AF24C1670F00027B04 /* FourSquareVenueModelResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC441AE24C1670F00027B04 /* FourSquareVenueModelResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +44,9 @@
 		EA0B4E5624C17BFF00C36EFF /* FourSquareVenueVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourSquareVenueVM.swift; sourceTree = "<group>"; };
 		EA0B4E5924C1810100C36EFF /* VenueCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueCell.swift; sourceTree = "<group>"; };
 		EA0B4E5D24C1854900C36EFF /* UIView+Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Loading.swift"; sourceTree = "<group>"; };
+		EA0B4E5F24C18EC900C36EFF /* FourSquarePhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourSquarePhoto.swift; sourceTree = "<group>"; };
+		EA0B4E6124C18F0300C36EFF /* FourSquarePhotoVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourSquarePhotoVM.swift; sourceTree = "<group>"; };
+		EA0B4E6324C197C000C36EFF /* BaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseError.swift; sourceTree = "<group>"; };
 		EAC4418024C14D0B00027B04 /* NearBy-IOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NearBy-IOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAC4418324C14D0B00027B04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EAC4418724C14D0B00027B04 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
@@ -53,7 +59,7 @@
 		EAC4419F24C14F2A00027B04 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		EAC441A924C164A500027B04 /* FourSquareNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourSquareNetworking.swift; sourceTree = "<group>"; };
 		EAC441AB24C1653800027B04 /* FourSquareAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourSquareAPI.swift; sourceTree = "<group>"; };
-		EAC441AE24C1670F00027B04 /* Responses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Responses.swift; sourceTree = "<group>"; };
+		EAC441AE24C1670F00027B04 /* FourSquareVenueModelResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourSquareVenueModelResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				EA0B4E5324C17B9500C36EFF /* FourSquareVenue.swift */,
+				EA0B4E5F24C18EC900C36EFF /* FourSquarePhoto.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -115,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				EA0B4E5624C17BFF00C36EFF /* FourSquareVenueVM.swift */,
+				EA0B4E6124C18F0300C36EFF /* FourSquarePhotoVM.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -196,6 +204,7 @@
 			children = (
 				EAC4419B24C14EE300027B04 /* TargetType.swift */,
 				EAC4419D24C14F0700027B04 /* BaseAPI.swift */,
+				EA0B4E6324C197C000C36EFF /* BaseError.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -205,7 +214,7 @@
 			children = (
 				EAC441AB24C1653800027B04 /* FourSquareAPI.swift */,
 				EAC441A924C164A500027B04 /* FourSquareNetworking.swift */,
-				EAC441AE24C1670F00027B04 /* Responses.swift */,
+				EAC441AE24C1670F00027B04 /* FourSquareVenueModelResponse.swift */,
 			);
 			path = FourSquare;
 			sourceTree = "<group>";
@@ -326,17 +335,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EAC441AF24C1670F00027B04 /* Responses.swift in Sources */,
+				EAC441AF24C1670F00027B04 /* FourSquareVenueModelResponse.swift in Sources */,
 				EA0B4E5E24C1854900C36EFF /* UIView+Loading.swift in Sources */,
 				EAC441A024C14F2A00027B04 /* Constants.swift in Sources */,
 				EA0B4E4D24C16E2400C36EFF /* CLLocation+distance.swift in Sources */,
+				EA0B4E6424C197C000C36EFF /* BaseError.swift in Sources */,
 				EA0B4E5724C17BFF00C36EFF /* FourSquareVenueVM.swift in Sources */,
 				EAC4419C24C14EE300027B04 /* TargetType.swift in Sources */,
 				EA0B4E5224C177D900C36EFF /* UIViewController+Create.swift in Sources */,
 				EAC441AA24C164A500027B04 /* FourSquareNetworking.swift in Sources */,
 				EA0B4E5424C17B9500C36EFF /* FourSquareVenue.swift in Sources */,
+				EA0B4E6024C18EC900C36EFF /* FourSquarePhoto.swift in Sources */,
 				EAC4419E24C14F0700027B04 /* BaseAPI.swift in Sources */,
 				EA0B4E5A24C1810100C36EFF /* VenueCell.swift in Sources */,
+				EA0B4E6224C18F0300C36EFF /* FourSquarePhotoVM.swift in Sources */,
 				EAC441AC24C1653800027B04 /* FourSquareAPI.swift in Sources */,
 				EA0B4E4A24C16D4C00C36EFF /* LocationUpdatesManager.swift in Sources */,
 				EA0B4E5024C1761800C36EFF /* MainVCViewModel.swift in Sources */,

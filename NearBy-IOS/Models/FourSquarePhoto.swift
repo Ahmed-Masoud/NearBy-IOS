@@ -1,5 +1,5 @@
 //
-//  FourSquareVenue.swift
+//  FourSquarePhoto.swift
 //  NearBy-IOS
 //
 //  Created by Ahmed masoud on 7/17/20.
@@ -9,20 +9,17 @@
 import Foundation
 import ObjectMapper
 
-class FourSquareVenueModel: Mappable {
-    var id: String?
-    var name: String?
-    var formattedAddress: [String]?
+class FourSquareVenuePhoto: Mappable {
+    var prefix: String?
+    var suffix: String?
     
     // MARK:- JSON
     required init?(map: Map) {
         self.mapping(map: map)
     }
     
-    
     func mapping(map: Map) {
-        id <- map["venue.id"]
-        name <- map["venue.name"]
-        formattedAddress <- map["venue.location.formattedAddress"]
+        prefix <- map["response.photos.items.0.prefix"]
+        suffix <- map["response.photos.items.0.suffix"]
     }
 }

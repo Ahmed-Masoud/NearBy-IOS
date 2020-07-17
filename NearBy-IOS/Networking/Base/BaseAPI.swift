@@ -20,27 +20,31 @@ class BaseAPI<T: TargetType> {
         AF.request(target.baseURL + target.path, method: method, parameters: params.0, encoding: params.1, headers: headers).responseJSON { (response) in
             guard let statusCode = response.response?.statusCode else {
                 // ADD Custom Error
-                completion(.failure(NSError()))
+                completion(.failure(NSError(domain: target.baseURL, code: 0, userInfo: [NSLocalizedDescriptionKey: "No status code something went wrong"])))
                 return
             }
             if statusCode == 200 {
                 // Successful request
                 guard let jsonResponse = try? response.result.get() else {
                     // ADD Custom Error
-                    completion(.failure(NSError()))
+                    completion(.failure(NSError(domain: target.baseURL, code: statusCode, userInfo: [NSLocalizedDescriptionKey: "No response"])))
                     return
                 }
                 
                 guard let obj = Mapper<M>().map(JSONObject: jsonResponse) else {
                     // ADD Custom Error
-                    completion(.failure(NSError()))
+                    completion(.failure(NSError(domain: target.baseURL, code: statusCode, userInfo: [NSLocalizedDescriptionKey: "failed to decode object"])))
                     return
                 }
                 
                 completion(.success(obj))
             } else {
                 // ADD custom error base on status code 404 / 401 /
-                completion(.failure(NSError()))
+                if let jsonResponse = try? response.result.get(), let obj = Mapper<BaseError>().map(JSONObject: jsonResponse) {
+                    completion(.failure(NSError(domain: target.baseURL, code: obj.code ?? 0, userInfo: [NSLocalizedDescriptionKey: obj.details ?? ""])))
+                    return
+                }
+                completion(.failure(NSError(domain: target.baseURL, code: statusCode, userInfo: [NSLocalizedDescriptionKey: "something went wrong"])))
             }
         }
     }

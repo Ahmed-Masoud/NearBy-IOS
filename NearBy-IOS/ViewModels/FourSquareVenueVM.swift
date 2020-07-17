@@ -9,6 +9,7 @@
 import Foundation
 
 protocol FourSquareVenueVMProtocol {
+    var id: String? { get }
     var name: String? { get }
     var address: String { get }
 }
@@ -19,6 +20,10 @@ class FourSquareVenueVM: FourSquareVenueVMProtocol {
     
     init(venue: FourSquareVenueModel) {
         self.venue = venue
+    }
+    
+    var id: String? {
+        return venue?.id
     }
     
     var name: String? {

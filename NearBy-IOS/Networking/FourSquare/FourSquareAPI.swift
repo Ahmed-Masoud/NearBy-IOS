@@ -10,6 +10,8 @@ import Foundation
 
 protocol FourSquareAPIProtocol {
     func getLocations(lat: Double, lon: Double, completion: @escaping (Result<FourSquareVenueModelResponse?, NSError>) -> Void)
+    func getPhotos(for venue: String, completion: @escaping (Result<FourSquareVenuePhoto?, NSError>) -> Void)
+    
 }
 
 
@@ -19,6 +21,12 @@ class FourSquareAPI: BaseAPI<FourSquareNetworking>, FourSquareAPIProtocol {
     
     func getLocations(lat: Double, lon: Double, completion: @escaping (Result<FourSquareVenueModelResponse?, NSError>) -> Void) {
         self.fetchData(target: .getLocations(lat: lat, lon: lon), responseClass: FourSquareVenueModelResponse.self) { (result) in
+            completion(result)
+        }
+    }
+    
+    func getPhotos(for venue: String, completion: @escaping (Result<FourSquareVenuePhoto?, NSError>) -> Void) {
+        self.fetchData(target: .getImages(venue: venue), responseClass: FourSquareVenuePhoto.self) { (result) in
             completion(result)
         }
     }

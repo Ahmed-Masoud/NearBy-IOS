@@ -1,5 +1,5 @@
 //
-//  Responses.swift
+//  BaseError.swift
 //  NearBy-IOS
 //
 //  Created by Ahmed masoud on 7/17/20.
@@ -9,8 +9,9 @@
 import Foundation
 import ObjectMapper
 
-class FourSquareVenueModelResponse: Mappable {
-    var items: [FourSquareVenueModel]?
+class BaseError: Mappable {
+    var code: Int?
+    var details: String?
     
     // MARK:- JSON
     required init?(map: Map) {
@@ -19,6 +20,7 @@ class FourSquareVenueModelResponse: Mappable {
     
     
     func mapping(map: Map) {
-        items <- map["response.groups.0.items"]
+        code <- map["meta.code"]
+        details <- map["meta.errorDetail"]
     }
 }

@@ -11,26 +11,29 @@ import Alamofire
 
 enum FourSquareNetworking {
     case getLocations(lat: Double, lon: Double)
+    case getImages(venue: String)
 }
 
 extension FourSquareNetworking: TargetType {
     var baseURL: String {
         switch self {
         default:
-            return "https://api.foursquare.com/v2"
+            return Server.fourSquareBaseURL.rawValue
         }
     }
     
     var path: String {
         switch self {
         case .getLocations:
-            return "/venues/explore"
+            return Endpoint.getVenues.rawValue
+        case let .getImages(venue):
+            return String(format: Endpoint.getVenuePhotos.rawValue, venue)
         }
     }
     
     var method: HTTPMethod {
         switch self {
-        case .getLocations:
+        case .getLocations, .getImages:
             return .get
         }
     }
@@ -40,6 +43,13 @@ extension FourSquareNetworking: TargetType {
         case let .getLocations(lat, lon):
             let params: [String: Any] = [
                 "ll": "\(lat),\(lon)",
+                "client_id": App.fourSquareClientID.rawValue,
+                "client_secret": App.fourSquareClientSecret.rawValue,
+                "v": "20190425"
+            ]
+            return .requestParameters(parameters: params, encoding: URLEncoding.default)
+        case .getImages:
+            let params: [String: Any] = [
                 "client_id": App.fourSquareClientID.rawValue,
                 "client_secret": App.fourSquareClientSecret.rawValue,
                 "v": "20190425"
