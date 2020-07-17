@@ -30,6 +30,10 @@ class MainVC: UIViewController {
             self?.viewModel?.fetchVenues(for: (location.latitude,location.longitude))
         }
     }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        venuesTable.startLoading()
+    }
     
     //MARK:- Methods
     class func create(viewModel: MainVCViewModelProtocol) -> MainVC {
@@ -57,6 +61,7 @@ extension MainVC: UITableViewDelegate, UITableViewDataSource {
 
 extension MainVC: MainVCProtocol {
     func dataFetched() {
+        venuesTable.stopLoading()
         venuesTable.reloadData()
     }
     

@@ -15,6 +15,7 @@
 		EA0B4E5424C17B9500C36EFF /* FourSquareVenue.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0B4E5324C17B9500C36EFF /* FourSquareVenue.swift */; };
 		EA0B4E5724C17BFF00C36EFF /* FourSquareVenueVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0B4E5624C17BFF00C36EFF /* FourSquareVenueVM.swift */; };
 		EA0B4E5A24C1810100C36EFF /* VenueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0B4E5924C1810100C36EFF /* VenueCell.swift */; };
+		EA0B4E5E24C1854900C36EFF /* UIView+Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0B4E5D24C1854900C36EFF /* UIView+Loading.swift */; };
 		EAC4418424C14D0B00027B04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC4418324C14D0B00027B04 /* AppDelegate.swift */; };
 		EAC4418824C14D0B00027B04 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC4418724C14D0B00027B04 /* MainVC.swift */; };
 		EAC4418B24C14D0B00027B04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAC4418924C14D0B00027B04 /* Main.storyboard */; };
@@ -39,6 +40,7 @@
 		EA0B4E5324C17B9500C36EFF /* FourSquareVenue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourSquareVenue.swift; sourceTree = "<group>"; };
 		EA0B4E5624C17BFF00C36EFF /* FourSquareVenueVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourSquareVenueVM.swift; sourceTree = "<group>"; };
 		EA0B4E5924C1810100C36EFF /* VenueCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueCell.swift; sourceTree = "<group>"; };
+		EA0B4E5D24C1854900C36EFF /* UIView+Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Loading.swift"; sourceTree = "<group>"; };
 		EAC4418024C14D0B00027B04 /* NearBy-IOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NearBy-IOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAC4418324C14D0B00027B04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EAC4418724C14D0B00027B04 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 			children = (
 				EA0B4E4C24C16E2400C36EFF /* CLLocation+distance.swift */,
 				EA0B4E5124C177D900C36EFF /* UIViewController+Create.swift */,
+				EA0B4E5D24C1854900C36EFF /* UIView+Loading.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EAC441AF24C1670F00027B04 /* Responses.swift in Sources */,
+				EA0B4E5E24C1854900C36EFF /* UIView+Loading.swift in Sources */,
 				EAC441A024C14F2A00027B04 /* Constants.swift in Sources */,
 				EA0B4E4D24C16E2400C36EFF /* CLLocation+distance.swift in Sources */,
 				EA0B4E5724C17BFF00C36EFF /* FourSquareVenueVM.swift in Sources */,
