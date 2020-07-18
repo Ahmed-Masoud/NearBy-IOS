@@ -48,14 +48,16 @@ class MainVC: UIViewController {
         self.title = "Near By"
         venuesTable.rowHeight = UITableView.automaticDimension
         venuesTable.estimatedRowHeight = 600
-        LocationUpdatesManager.shared.didExceedThreshold = { [weak self] (location) in
+        LocationUpdatesManager.shared.didExceedThreshold = { [weak self] (location, isFirstUpdate) in
             self?.currentLocation = location
             self?.loadingData = true
             self?.viewModel?.fetchVenues(for: (location.latitude,location.longitude), isFirstLoad: true)
-            if UserDefaultsManager.shared.appModeKey == .realTime {
-                self?.startRealTime()
-            } else {
-                self?.stopRealTime()
+            if isFirstUpdate {
+                if UserDefaultsManager.shared.appModeKey == .realTime {
+                    self?.startRealTime()
+                } else {
+                    self?.stopRealTime()
+                }
             }
         }
         LocationUpdatesManager.shared.startUpdatesIfNeeded()

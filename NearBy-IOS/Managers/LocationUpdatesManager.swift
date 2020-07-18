@@ -16,7 +16,7 @@ class LocationUpdatesManager: NSObject, CLLocationManagerDelegate {
     private var lastUpdate: CLLocationCoordinate2D?
     private var distanceThreshold: Double = 500
     private var isUpdating = false
-    var didExceedThreshold: ((_ loc: CLLocationCoordinate2D)->())?
+    var didExceedThreshold: ((_ loc: CLLocationCoordinate2D, _ firstUpdate: Bool)->())?
     
     //MARK:- Methods
     func startUpdatesIfNeeded() {
@@ -43,12 +43,12 @@ class LocationUpdatesManager: NSObject, CLLocationManagerDelegate {
         guard let currentUpdate = locations.last?.coordinate else { return }
         guard let lastUpdate = lastUpdate else {
             // first launch
-            didExceedThreshold?(currentUpdate)
+            didExceedThreshold?(currentUpdate, true)
             self.lastUpdate = currentUpdate
             return
         }
         if CLLocation.distance(from: lastUpdate, to: currentUpdate) > distanceThreshold {
-            didExceedThreshold?(currentUpdate)
+            didExceedThreshold?(currentUpdate, false)
         }
         self.lastUpdate = currentUpdate
     }
