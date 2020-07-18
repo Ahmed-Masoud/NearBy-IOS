@@ -14,7 +14,7 @@ pod install
 This app is base on Foresquare API to retrieve venues around the user's current location.
 The app is implemented using a protocol oriented MVVM.
 The app works fine for iphone/ipad.
-The app fetches venues with an infinite scroll technique so the user is always data when he needs it
+The app fetches venues with an infinite scroll technique so the user is always getting data only when he needs it
 The app has 2 operational modes :
 - Single update mode wich loads the venues once the app is launched only
 - Real time mode were the user gets an updated venues list as he moves around
