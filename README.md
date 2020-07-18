@@ -22,6 +22,9 @@ The app has 2 operational modes :
 ## Notes
 The app is based on a free tier four square account and it'l likely to have a quotation expiration console log for retrieving images but the app will continue to operate using placeholder images as the error view was disabled for this specific error 
 
+## Future Work
+- Add cahing mechanism to the app for offline mode
+
 ## License
 NearBy is available under the MIT license. See the LICENSE file for more info.
 
