@@ -20,11 +20,11 @@ class MainVC: UIViewController {
     @IBOutlet weak var venuesTable: UITableView!
     
     //MARK:- Properties
-    var viewModel: MainVCViewModelProtocol?
+    private var viewModel: MainVCViewModelProtocol?
     private var loadingData = true
     private var currentLocation: CLLocationCoordinate2D?
-    var errorView: ErrorView?
-    
+    private var errorView: ErrorView?
+    private var shownIndexes : [IndexPath] = [] // used for cells animation
     //MARK:- LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -93,31 +93,64 @@ extension MainVC: UITableViewDelegate, UITableViewDataSource {
                 self.viewModel?.fetchVenues(for: (loc.latitude, loc.longitude), isFirstLoad: false)
             }
         }
+        
+        if (shownIndexes.contains(indexPath) == false) {
+            shownIndexes.append(indexPath)
+            
+            cell.transform = CGAffineTransform(translationX: 0, y: 55)
+            cell.layer.shadowColor = UIColor.black.cgColor
+            cell.layer.shadowOffset = CGSize(width: 10, height: 10)
+            cell.alpha = 0
+            
+            UIView.beginAnimations("rotation", context: nil)
+            UIView.setAnimationDuration(0.5)
+            cell.transform = CGAffineTransform(translationX: 0, y: 0)
+            cell.alpha = 1
+            cell.layer.shadowOffset = CGSize(width: 0, height: 0)
+            UIView.commitAnimations()
+        }
     }
 }
 
 extension MainVC: MainVCProtocol {
     func dataFetched() {
-        errorView?.removeFromSuperview()
+        hideErrorView()
         loadingData = false
         venuesTable.stopLoading()
         if viewModel?.numberOfRows == 0 {
-            errorView = ErrorView(frame: venuesTable.frame)
-            errorView?.updateWith(image: UIImage(named: "noData")!, text: "No Results !\nTry moving around")
-            self.view.addSubview(errorView!)
+            showErrorView(message: "No Results !\nTry moving around", image: UIImage(named: "noData")!)
         }
         venuesTable.reloadData()
     }
     
     func showError(message: String) {
-        errorView = ErrorView(frame: venuesTable.frame)
-        errorView?.updateWith(image: UIImage(named: "errorIcon")!, text: message)
-        self.view.addSubview(errorView!)
+        showErrorView(message: message, image: UIImage(named: "errorIcon")!)
     }
     
     func imageLoaded(for index: IndexPath) {
         guard let venue = viewModel?.venue(for: index.row) else { return }
         (venuesTable.cellForRow(at: index) as? VenueCell)?.update(with: venue)
+    }
+    
+    private func showErrorView(message: String, image: UIImage) {
+        hideErrorView()
+        errorView = ErrorView(frame: venuesTable.frame)
+        errorView?.updateWith(image: image, text: message)
+        errorView?.alpha = 0
+        self.view.addSubview(errorView!)
+        UIView.animate(withDuration: 0.2) { [weak errorView] in
+            errorView?.alpha = 1
+        }
+    }
+    
+    private func hideErrorView() {
+        if let errorView = errorView {
+            UIView.animate(withDuration: 0.2, animations: { [weak errorView] in
+                errorView?.alpha = 0
+            }) { [weak errorView] (_) in
+                errorView?.removeFromSuperview()
+            }
+        }
     }
 }
 
