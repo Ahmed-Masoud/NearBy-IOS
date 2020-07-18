@@ -131,6 +131,7 @@
 		EA0B4E5824C17CF100C36EFF /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				EA0B4E4F24C1761800C36EFF /* MainVCViewModel.swift */,
 				EA0B4E5624C17BFF00C36EFF /* FourSquareVenueVM.swift */,
 				EA0B4E6124C18F0300C36EFF /* FourSquarePhotoVM.swift */,
 			);
@@ -194,7 +195,6 @@
 			isa = PBXGroup;
 			children = (
 				EAC4418724C14D0B00027B04 /* MainVC.swift */,
-				EA0B4E4F24C1761800C36EFF /* MainVCViewModel.swift */,
 				EA0B4E5924C1810100C36EFF /* VenueCell.swift */,
 				EAD2FA1824C2354600313D59 /* Error */,
 			);
