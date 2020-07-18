@@ -52,19 +52,35 @@ class MainVC: UIViewController {
             self?.currentLocation = location
             self?.loadingData = true
             self?.viewModel?.fetchVenues(for: (location.latitude,location.longitude), isFirstLoad: true)
+            if UserDefaultsManager.shared.appModeKey == .realTime {
+                self?.startRealTime()
+            } else {
+                self?.stopRealTime()
+            }
         }
-        startRealTime()
+        LocationUpdatesManager.shared.startUpdatesIfNeeded()
+        setupNavigationButton()
     }
     
     @objc func stopRealTime() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Start RealTime", style: .plain, target: self, action: #selector(startRealTime))
+        UserDefaultsManager.shared.appModeKey = .singleUpdate
+        setupNavigationButton()
         LocationUpdatesManager.shared.stopUpdates()
     }
     
     @objc func startRealTime() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Stop RealTime", style: .plain, target: self, action: #selector(stopRealTime))
-        LocationUpdatesManager.shared.startUpdates()
+        UserDefaultsManager.shared.appModeKey = .realTime
+        setupNavigationButton()
+        LocationUpdatesManager.shared.startUpdatesIfNeeded()
         
+    }
+    
+    private func setupNavigationButton() {
+        if UserDefaultsManager.shared.appModeKey == .realTime {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Stop RealTime", style: .plain, target: self, action: #selector(stopRealTime))
+        } else {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Start RealTime", style: .plain, target: self, action: #selector(startRealTime))
+        }
     }
     
 }

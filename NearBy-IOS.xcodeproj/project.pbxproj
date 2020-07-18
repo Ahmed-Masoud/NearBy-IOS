@@ -33,6 +33,7 @@
 		EAD2FA1524C22D0100313D59 /* UIView+CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD2FA1424C22D0100313D59 /* UIView+CornerRadius.swift */; };
 		EAD2FA1724C2353F00313D59 /* ErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAD2FA1624C2353F00313D59 /* ErrorView.xib */; };
 		EAD2FA1A24C2355500313D59 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD2FA1924C2355500313D59 /* ErrorView.swift */; };
+		EAD2FA1C24C2A15700313D59 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD2FA1B24C2A15700313D59 /* UserDefaultsManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		EAD2FA1424C22D0100313D59 /* UIView+CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+CornerRadius.swift"; sourceTree = "<group>"; };
 		EAD2FA1624C2353F00313D59 /* ErrorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ErrorView.xib; sourceTree = "<group>"; };
 		EAD2FA1924C2355500313D59 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		EAD2FA1B24C2A15700313D59 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				EA0B4E4924C16D4C00C36EFF /* LocationUpdatesManager.swift */,
+				EAD2FA1B24C2A15700313D59 /* UserDefaultsManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 				EA0B4E5E24C1854900C36EFF /* UIView+Loading.swift in Sources */,
 				EAC441A024C14F2A00027B04 /* Constants.swift in Sources */,
 				EA0B4E4D24C16E2400C36EFF /* CLLocation+distance.swift in Sources */,
+				EAD2FA1C24C2A15700313D59 /* UserDefaultsManager.swift in Sources */,
 				EAD2FA1A24C2355500313D59 /* ErrorView.swift in Sources */,
 				EA0B4E6424C197C000C36EFF /* BaseError.swift in Sources */,
 				EA0B4E5724C17BFF00C36EFF /* FourSquareVenueVM.swift in Sources */,

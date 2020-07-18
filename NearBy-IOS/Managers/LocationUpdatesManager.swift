@@ -15,20 +15,28 @@ class LocationUpdatesManager: NSObject, CLLocationManagerDelegate {
     private var locationManager: CLLocationManager?
     private var lastUpdate: CLLocationCoordinate2D?
     private var distanceThreshold: Double = 500
+    private var isUpdating = false
     var didExceedThreshold: ((_ loc: CLLocationCoordinate2D)->())?
     
     //MARK:- Methods
-    func startUpdates() {
+    func startUpdatesIfNeeded() {
+        if let manage = locationManager {
+            if !isUpdating {
+                manage.startUpdatingLocation() }
+            return
+        }
         locationManager = CLLocationManager()
         locationManager?.desiredAccuracy = kCLLocationAccuracyBest
         locationManager?.distanceFilter = kCLDistanceFilterNone
         locationManager?.delegate = self
         locationManager?.requestWhenInUseAuthorization()
         locationManager?.startUpdatingLocation()
+        isUpdating = true
     }
     
     func stopUpdates() {
         locationManager?.stopUpdatingLocation()
+        isUpdating = false
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
