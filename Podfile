@@ -7,7 +7,6 @@ target 'NearBy-IOS' do
 
   # Pods for NearBy-IOS
 pod 'Alamofire'
-pod 'ReachabilitySwift', '~> 5.0.0'
 pod 'Kingfisher', '~> 5.14.0'
 pod 'ObjectMapper', '~> 3.5'
 end
