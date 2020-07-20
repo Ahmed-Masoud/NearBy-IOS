@@ -49,7 +49,7 @@ class LocationUpdatesManager: NSObject, CLLocationManagerDelegate {
         }
         if CLLocation.distance(from: lastUpdate, to: currentUpdate) > distanceThreshold {
             didExceedThreshold?(currentUpdate, false)
+            self.lastUpdate = currentUpdate
         }
-        self.lastUpdate = currentUpdate
     }
 }
